@@ -1,0 +1,226 @@
+<!doctype HTTP>
+<html>
+<head>
+  <script type="text/javascript">
+
+
+    // VARIABLES ###############################################################
+    var slctMode,
+        slctNumTeams,
+
+        btnNewTournament,
+        btnChooseTeams,
+        btnGameOver,
+
+        btnRandomizeTeams,
+        btnConfrimTeams,
+
+        tablePlayers;
+
+    // INITIALIZE ##############################################################
+    window.onload = function() {
+      slctMode = $('slctMode');
+      slctNumTeams = $('slctNumTeams');
+
+      btnNewTournament = $('btnNewTournament');
+      btnChooseTeams = $('btnChooseTeams');
+      btnGameOver = $('btnGameOver');
+
+      btnRandomize = $('btnRandomizeTeams');
+      btnConfrimTeams = $('btnConfrimTeams');
+
+      tablePlayers = $('tablePlayers');
+    }
+
+
+    // UTILITIES ###############################################################
+    function $(elementId) {
+      return document.getElementById(elementId);
+    }
+
+    function getSelectValue(selectElement) {
+      return selectElement.options[selectElement.selectedIndex].value;
+    }
+
+
+    // DOC LISTENERS ###########################################################
+
+    function getSelectedMode() { return getSelectValue(slctMode); }
+
+    function getSelectedTeamNum() { return getSelectValue(slctTeamNum); }
+
+
+  </script>
+
+  <style>
+
+    * {
+      color: #555;
+      font-family: arial, Sans-serif, times, serif; 
+      font-size: 14px; 
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: rgb(237, 237, 237);
+      margin: 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    input, select, span {
+      padding: 6px 10px 6px 10px;
+      --min-width: 60px;
+      margin: 0;
+    }
+
+    input:focus, select:focus { outline: none; }
+
+    .card {
+      -webkit-appearance: none;  
+      -moz-appearance: none;  
+
+      border: 1px solid rgb(207, 207, 207);
+      border-radius: 0;
+
+      background: white;
+
+      -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+
+    input.card:hover, select.card:hover { border-color: #555; }
+
+    input.card:active, select.card:active {
+      border-color: #555;
+      background: rgb(207, 207, 207);
+    }
+
+    input[type=text].sleek  {
+      -webkit-appearance: none;  
+      -moz-appearance: none;  
+      border: 1px solid red;
+      --width: 100px;
+    }
+
+    table.card td { 
+      --padding: 6px 10px 6px 10px;
+      border: 1px solid rgb(207, 207, 207); 
+    }
+
+    label {
+      margin: 0;
+      padding: 6px 0 6px 0;
+      font-weight: bold;
+    }
+   
+    #divTeamSelectTitle {
+      border-bottom: 1px solid rgb(207, 207, 207);
+      height: 40px;
+    }
+
+    #divTeamSelect {
+      --border: 1px solid red;
+      --padding: 10px;
+      width: 383px;
+    }
+
+    #divModeSelect {
+      margin-bottom: 10px;
+      padding-left: 10px;
+      padding-top: 10px;
+    }
+
+    #divPlayers {
+      padding-left: 10px;
+    }
+
+    #tablePlayers {
+      margin-bottom: 10px;
+      --width: 300px;
+    }
+
+    #tablePlayers input {
+      width: 100px;
+    }
+
+    #tablePlayers td:first-child {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+
+    #divConfirmRandomize {
+      border-top: 1px solid rgb(207, 207, 207);
+      padding-top: 10px;
+      padding-left: 10px;
+      padding-bottom: 10px;
+      --float: right;
+      --position: relative;
+    }
+
+    #btnRandomizeTeams {
+      margin-right: 5px;
+    }
+    
+
+
+
+  </style>
+</head>
+<body>
+
+    <div id="divTeamSelect" class="card">
+
+      <div id="divTeamSelectTitle">
+        <span>Nuovo torneo</span>
+      </div>
+
+      <div id="divModeSelect">
+        <label>Seleziona modalit&agrave: </label>
+        <select class="card" id="slctMode" onchange="onModeSelected();">
+          <option value="double">Doppia eliminazione</option>
+          <option value="single">Singola eliminazione</option>
+        </select>
+      </div>
+
+      <div id="divPlayers">
+        <label>Seleziona squadre:</label>
+        <table class="card" id="tablePlayers">
+          <script>
+
+            function textbox(player) {
+               return '<input class="sleek" type="text" placeholder="Giocatore ' + player + '">';
+            }
+
+            var html  = '',
+                teams = 4;
+
+            for (var i = 0; i < teams; i++) {
+              html += '<tr>';
+              html += '<td>' + (i+1) + '</td>';
+              html += '<td>' + textbox((i*2)+1) + '</td>';
+              html += '<td>' + textbox((i*2)+2) + '</td>';
+              html += '</tr>';
+            }
+
+            document.write(html);
+
+          </script>
+        </table>
+      </div>
+
+      <div id="divConfirmRandomize">
+        <input class="card" id="btnRandomizeTeams" type="button" value="Randomizza" onclick="onRandomizeTeamsClicked();">
+        <input class="card" id="btnConfirmTeams" type="button" value="Conferma" onclick="onConfirmTeamsClicked();">
+      </div>
+
+    </div>
+
+
+</body>
+</html>

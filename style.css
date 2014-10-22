@@ -1,0 +1,108 @@
+
+* {
+  color: #555;
+  font-family: arial, Sans-serif, times, serif; 
+  font-size: 14px; 
+  margin: 0;
+}
+
+body {
+  background: rgb(240, 240, 240);
+  margin: 20px;
+}
+
+hr {
+  color: rgb(207, 207, 207);
+  background-color: rgb(207, 207, 207);
+  border: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 1px;
+}
+
+.table-tournament {
+  border-collapse: collapse;
+  --border: 1px solid blue;
+}
+
+.table-tournament td {
+  --border: 1px solid red;
+  height: 30px;
+  --min-width: 90px;
+  --width: 40px;
+  --padding: 3px;
+  --background: white;
+}
+
+.box-player {
+  -webkit-appearance: none;  
+  -moz-appearance: none;  
+
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 0;
+
+  background: white;
+  padding: 6px;
+
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+.box-player:focus { outline: none; }
+
+.box-player-score {
+  -webkit-appearance: none;  
+  -moz-appearance: none;  
+  width: 20px;
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 0;
+
+  background: white;
+  padding: 6px;
+
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.label-match {
+  display: block;
+  font-weight: bold;
+  --font-size: 16px;
+}
+
+.css-ball {
+  display: inline-block;
+  background: rgb(207, 207, 207);
+  border-radius: 50%;
+  height: 12px;
+  width: 12px;
+  margin: 8px;
+}
+
+.empty-css-ball {
+  background: transparent;
+}
+
+.trans-css-ball {
+  background: rgb(227, 227, 227);
+}
+
+
+.btn-save {
+  -webkit-appearance: none;  
+  -moz-appearance: none;  
+
+  border: 1px solid #3079ed;
+  border-radius: 0;
+
+  background: #4d90fe;
+  padding: 6px;
+  color: white;
+
+  width: 160px;
+
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+.btn-save:focus { outline: none; }
+.btn-save:hover { background: #3079ed; }
+.btn-save:active { background: #4d90fe; }
